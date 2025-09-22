@@ -32,7 +32,7 @@
 - **Ongoing Support** - Maintenance and updates included
 
 **📧 Contact the Developer:**
-- **Email**: ["mailto:dev.nkosii@gmail.com"]
+- **Email**: ["dev.nkosii@gmail.com"]
 - **Portfolio**: [https://github.com/devNtshingila]
 - **Availability**: Taking new projects for 2024
 
