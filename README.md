@@ -32,7 +32,7 @@
 - **Ongoing Support** - Maintenance and updates included
 
 **📧 Contact the Developer:**
-- **Email**: "dev.nkosii@gmail.com"
+- **Email**: dev.nkosii@gmail.com
 - **Portfolio**: https://github.com/devNtshingila
 - **Availability**: Taking new projects for 2025/6
 
@@ -95,7 +95,7 @@ freshkicksza-concept.netlify.app/
 ## 📞 Contact for Custom Development
 
 ### **Ready for Your Professional Website?**
-**📧 Email**: "dev.nkosii@gmail.com" 
+**📧 Email**: dev.nkosii@gmail.com
 **💼 Portfolio**: https://github.com/devNtshingila  
 **🕒 Response Time**: Within 24 hours  
 **⏱️ Project Timeline**: 5-7 days for standard sites
@@ -126,7 +126,7 @@ freshkicksza-concept.netlify.app/
 
 **Have an idea for a website?** I can bring it to life faster than you think!
 
-**📧 Email today to discuss your project:** "dev.nkosii@gmail.com"
+**📧 Email today to discuss your project:** dev.nkosii@gmail.com
 
 **💬 Typical response time:** Less than 24 hours
 
@@ -144,4 +144,4 @@ freshkicksza-concept.netlify.app/
 
 *"Transforming ideas into digital experiences, one pixel at a time."* 💻✨
 
-**📧 Contact the developer for your own custom website:** "dev.nkosii@gmail.com"
+**📧 Contact the developer for your own custom website:** dev.nkosii@gmail.com
