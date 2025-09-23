@@ -1,0 +1,797 @@
+/* ============================================= */
+/* FRESH KICKS ZA - STYLESHEET */
+/* Main CSS file for the sneaker cleaning website */
+/* ============================================= */
+
+/* ===== CSS RESET ===== */
+/* Normalize browser defaults for consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== CSS VARIABLES (CUSTOM PROPERTIES) ===== */
+/* Centralized color and font definitions for easy maintenance */
+:root {
+    /* Color Palette */
+    --black: #000000;
+    --white: #ffffff;
+    --electric-green: #00ff00;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #333333;
+    --light-gray: #f5f5f5;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Lato', sans-serif;
+    
+    /* Spacing */
+    --section-padding: 5rem 0;
+    --container-max-width: 1200px;
+}
+
+/* ===== BASE STYLES ===== */
+/* Foundation styles applied to all elements */
+body {
+    font-family: var(--font-body);
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY SYSTEM ===== */
+/* Hierarchical text styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--electric-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--white);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== LAYOUT CONTAINER ===== */
+/* Centered container for content */
+.container {
+    width: 90%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== BUTTON COMPONENTS ===== */
+/* Reusable button styles with variants */
+.btn {
+    display: inline-block;
+    background-color: var(--electric-green);
+    color: var(--black);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--electric-green);
+    color: var(--electric-green);
+}
+
+.btn-outline:hover {
+    background-color: var(--electric-green);
+    color: var(--black);
+}
+
+/* ===== LOADING SCREEN STYLES ===== */
+/* Full-page loading animation */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+}
+
+.loading-text {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--electric-green);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0;
+    background-color: var(--electric-green);
+    animation: load 3s ease-in-out forwards;
+}
+
+/* ===== ENTRY PAGE STYLES ===== */
+/* "Coming Soon" landing page before main site */
+.entry-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: transform 1s ease-in-out;
+}
+
+/* Hidden state for when user enters the site */
+.entry-page.hidden {
+    transform: translateY(-100%);
+}
+
+.entry-hero {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.entry-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.coming-soon {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.enter-btn {
+    padding: 15px 30px;
+    background-color: transparent;
+    color: var(--electric-green);
+    border: 2px solid var(--electric-green);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.enter-btn:hover {
+    background-color: var(--electric-green);
+    color: var(--black);
+    box-shadow: 0 0 20px var(--electric-green);
+}
+
+.sneaker-icon {
+    font-size: 3rem;
+    margin-top: 40px;
+    animation: bounce 2s infinite;
+}
+
+/* ===== MAIN WEBSITE VISIBILITY ===== */
+/* Controls display of main content after entry */
+.main-website {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.main-website.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+/* Fixed header with navigation menu */
+header {
+    background-color: var(--black);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.logo span {
+    color: var(--electric-green);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--electric-green);
+}
+
+/* Underline animation on navigation links */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--electric-green);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+/* Full-screen introductory section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000"/><path d="M0 0L100 100" stroke="%2300ff00" stroke-width="1"/><path d="M100 0L0 100" stroke="%2300ff00" stroke-width="1"/></svg>');
+    background-size: cover;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    animation: fadeIn 1.5s ease;
+}
+
+/* ===== SERVICES SECTION ===== */
+/* Grid layout for service offerings */
+.services {
+    padding: var(--section-padding);
+    background-color: var(--dark-gray);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--electric-green);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background-color: var(--electric-green);
+    bottom: -10px;
+    left: 25%;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--medium-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+}
+
+.service-img {
+    height: 200px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img img {
+    transform: scale(1.1);
+}
+
+.service-content {
+    padding: 1.5rem;
+}
+
+.service-content h3 {
+    color: var(--electric-green);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== BOOKING SECTION ===== */
+/* Appointment scheduling interface */
+.booking {
+    padding: var(--section-padding);
+    background-color: var(--black);
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.booking-form {
+    background-color: var(--medium-gray);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--electric-green);
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--electric-green);
+    border-radius: 4px;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    font-family: var(--font-body);
+}
+
+/* ===== STORE SECTION ===== */
+/* Product grid for e-commerce */
+.store {
+    padding: var(--section-padding);
+    background-color: var(--dark-gray);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--medium-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-img {
+    height: 200px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--electric-green);
+    font-size: 2rem;
+}
+
+.product-content {
+    padding: 1.5rem;
+}
+
+.product-content h3 {
+    color: var(--electric-green);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--electric-green);
+    margin-bottom: 1rem;
+}
+
+/* ===== BLOG SECTION ===== */
+/* Content grid for articles */
+.blog {
+    padding: var(--section-padding);
+    background-color: var(--black);
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    background-color: var(--medium-gray);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.blog-img {
+    height: 200px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--electric-green);
+    font-size: 2rem;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-content h3 {
+    color: var(--electric-green);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+/* ===== CUSTOMER PORTAL ===== */
+/* Login and registration forms */
+.portal {
+    padding: var(--section-padding);
+    background-color: var(--dark-gray);
+}
+
+.portal-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.portal-form {
+    background-color: var(--medium-gray);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
+/* Site footer with multiple sections */
+footer {
+    background-color: var(--black);
+    padding: 3rem 0;
+    border-top: 1px solid var(--electric-green);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--electric-green);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: var(--white);
+}
+
+.footer-section ul li a:hover {
+    color: var(--electric-green);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--medium-gray);
+    color: var(--white);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--electric-green);
+    color: var(--black);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--medium-gray);
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+/* Reusable animation definitions */
+
+/* Loading bar animation */
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Text glow effect for headings */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--white);
+    }
+    to {
+        text-shadow: 0 0 20px var(--electric-green), 0 0 30px var(--electric-green);
+    }
+}
+
+/* Bouncing sneaker icon */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
+
+/* Fade in animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+/* Classes for animating elements on scroll */
+.animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Media queries for different screen sizes */
+
+/* Tablet screens (max-width: 992px) */
+@media (max-width: 992px) {
+    .booking-container,
+    .portal-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .entry-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Small mobile screens (max-width: 576px) */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .entry-title {
+        font-size: 2rem;
+    }
+    
+    .coming-soon {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+/* Optimize website for printing */
+@media print {
+    .entry-page,
+    .loading-screen,
+    .hero-buttons,
+    .social-links {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+}
