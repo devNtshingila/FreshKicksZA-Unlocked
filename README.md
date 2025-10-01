@@ -140,7 +140,7 @@ freshkicksza-concept.netlify.app/
 
 ---
 
-*Crafted with ❤️ by Dev.Nkosi | Web Developer
+Crafted with ❤️ by Dev.Nkosi | Web Developer
 
 *"Transforming ideas into digital experiences, one pixel at a time."* 💻✨
 
